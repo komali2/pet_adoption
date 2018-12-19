@@ -18,7 +18,10 @@ function handleDogsResponse(){
         // So, invoke again. 
         window.WAMediaBox.bindAll(dogs_list_div);
     } else {
-        // Error
+        document.getElementById('dogs-list')
+            .appendChild(
+                document.createTextNode('There was an error fetching dogs :( ')
+            );
     }
 }
 
