@@ -19,14 +19,7 @@ a {
   color: var(--color-link);
 }
 
-/* Snippets */
-.site-header {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  text-align: center;
-}
-
-.site-header__quote {
+blockquote {
   color: var(--color);
   font-family: var(--font-serif);
   margin-left: auto;
@@ -34,12 +27,11 @@ a {
   max-width: 460px;
 }
 
-.site-footer {
+footer {
   color: var(--color);
   font-family: var(--font-serif);
   text-align: center;
 }
-
 
 main {
   margin-left: auto;
@@ -48,6 +40,9 @@ main {
 }
 header {
   font-size: 2em;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  text-align: center;
 }
 
 h1 small, h2 small, h3 small, h4 small {
