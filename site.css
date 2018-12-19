@@ -38,6 +38,10 @@ main {
   margin-right: auto;
 }
 
+main h3 {
+  text-align: center;
+}
+
 header {
   font-size: 2em;
   padding-bottom: 2rem;
