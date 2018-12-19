@@ -11,6 +11,10 @@ function handleDogsResponse(){
         var dogs_array = JSON.parse(this.responseText).dogs;
         var dogs_list_div = document.getElementById('dogs-list');
         dogs_list_div.appendChild(buildUl(dogs_array));
+        // This function gets invoked on pageload... when we haven't
+        // built out our doggie list yet.
+        // So, invoke again. 
+        window.WAMediaBox.bindAll(dogs_list_div);
     } else {
         // Error
     }
@@ -19,6 +23,13 @@ function handleDogsResponse(){
 function buildListImageElement(obj){
     var li = document.createElement('li');
     var img = document.createElement('img');
+    var a = document.createElement('a');
+
+    // <a> tag stuff required for wa-mediabox
+    a.setAttribute('href', obj.image);
+    a.setAttribute('data-mediabox', 'doggies');
+    a.setAttribute('data-title', 'Adorable Doggy');
+
     img.setAttribute('src', obj.image);
     img.setAttribute('alt', 
         'An adorable doggy available for adoption, source image from ' + 
@@ -29,7 +40,8 @@ function buildListImageElement(obj){
      * great explanation as to why:
      * https://developer.paciellogroup.com/blog/2013/01/using-the-html-title-attribute-updated/
      */
-    li.appendChild(img);
+    a.appendChild(img);
+    li.appendChild(a);
     return li;
 }
 
