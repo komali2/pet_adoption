@@ -9,9 +9,8 @@ function handleDogsResponse(){
     if(this.status === 200) {
         // Success
         var dogs_array = JSON.parse(this.responseText).dogs;
-        var li = buildListImageElement(dogs_array[0]);
-        var dogs_list_ul = document.getElementById('dogs-list');
-        dogs_list_ul.appendChild(li);
+        var dogs_list_div = document.getElementById('dogs-list');
+        dogs_list_div.appendChild(buildUl(dogs_array));
     } else {
         // Error
     }
@@ -32,4 +31,12 @@ function buildListImageElement(obj){
      */
     li.appendChild(img);
     return li;
+}
+
+function buildUl(arr){
+    var ul = document.createElement('ul');
+    for(var i = 0; i < arr.length; i++){
+        ul.appendChild(buildListImageElement(arr[i]));
+    }
+    return ul;
 }
