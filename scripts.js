@@ -1,6 +1,8 @@
 window.onload = function(){
     var request = new XMLHttpRequest();
     request.addEventListener('load', handleDogsResponse);
+    // Fairly straightforward to swap this to another API down the line, not
+    // so straightfoward to implement pagination but could be shoehorned in.
     request.open('GET', '/assets/data/dogs.json');
     request.send();
 };
@@ -28,7 +30,7 @@ function buildListImageElement(obj){
     // <a> tag stuff required for wa-mediabox
     a.setAttribute('href', obj.image);
     a.setAttribute('data-mediabox', 'doggies');
-    a.setAttribute('data-title', 'Adorable Doggy');
+    a.setAttribute('data-title', 'This handsome puppy is available for adoption now!');
 
     img.setAttribute('src', obj.image);
     img.setAttribute('alt', 
